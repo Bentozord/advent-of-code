@@ -2,7 +2,7 @@ package twenty.day.one;
 
 import java.util.List;
 
-class FirstDay {
+class First {
 
     public static Integer sumUpAndMultiply(final List<Integer> input) {
         for (int i = 0; i < input.size(); i++) {

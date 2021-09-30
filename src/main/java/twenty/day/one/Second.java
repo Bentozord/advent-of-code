@@ -1,8 +1,8 @@
-package twenty.day.two;
+package twenty.day.one;
 
 import java.util.List;
 
-class SecondDay {
+class Second {
 
     public static Integer tripleSumUpAndMultiply(List<Integer> input) {
         for (int i = 0; i < input.size(); i++) {

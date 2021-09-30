@@ -9,7 +9,7 @@ import twenty.day.utils.NumbersReader;
 import java.util.List;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class FirstDayTest {
+class FirstTest {
 
     private List<Integer> input;
 
@@ -20,6 +20,6 @@ class FirstDayTest {
 
     @Test
     void sumUpAndMultiply() {
-        Assertions.assertEquals(138379, FirstDay.sumUpAndMultiply(input));
+        Assertions.assertEquals(138379, First.sumUpAndMultiply(input));
     }
 }
