@@ -2,9 +2,9 @@ package twenty.day.one;
 
 import java.util.List;
 
-class First {
+class ReportRepair {
 
-    public static Integer sumUpAndMultiply(final List<Integer> input) {
+    static Integer sumUpAndMultiply(final List<Integer> input) {
         for (int i = 0; i < input.size(); i++) {
             for (int j = i; j < input.size(); j++) {
                 if (i != j) {

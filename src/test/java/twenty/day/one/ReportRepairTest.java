@@ -9,17 +9,18 @@ import twenty.day.utils.NumbersReader;
 import java.util.List;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class FirstTest {
+class ReportRepairTest {
 
+    private static final String FILE_NAME = "src/main/resources/one/inputDayOne";
     private List<Integer> input;
 
     @BeforeAll
     void setup() {
-        input = NumbersReader.readInput("C:\\opt\\code\\advent-of-code\\src\\test\\resources\\inputDayOne");
+        input = NumbersReader.readInput(FILE_NAME);
     }
 
     @Test
     void sumUpAndMultiply() {
-        Assertions.assertEquals(138379, First.sumUpAndMultiply(input));
+        Assertions.assertEquals(138379, ReportRepair.sumUpAndMultiply(input));
     }
 }

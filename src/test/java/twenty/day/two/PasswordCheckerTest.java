@@ -10,8 +10,8 @@ import java.util.List;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class PasswordCheckerTest {
 
-    private static final String FILE_NAME = "C:\\opt\\code\\advent-of-code\\src\\test\\java\\twenty\\day\\two\\inputPasswords";
-    private static final String FILE_NAME_OTHER = "C:\\opt\\code\\advent-of-code\\src\\test\\java\\twenty\\day\\two\\inputPasswords2";
+    private static final String FILE_NAME = "src/main/resources/two/inputPasswords";
+    private static final String FILE_NAME_OTHER = "src/main/resources/two/inputPasswords2";
     List<PasswordPolicyStructure> passwordPolicyStructures;
     List<PasswordPolicyStructure> newPasswordPolicyStructures;
 
