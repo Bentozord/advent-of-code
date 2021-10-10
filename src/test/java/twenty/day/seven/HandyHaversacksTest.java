@@ -15,24 +15,26 @@ class HandyHaversacksTest {
 
     BagReader reader;
     HandyHaversacks handyHaversacks;
+    GraphFactory factory;
 
     @BeforeAll
     void setup() {
         reader = new BagReader();
         handyHaversacks = new HandyHaversacks();
+        factory = new WeightedGraphFactory();
     }
 
     @Test
     void countBagsShouldReturnProperNumber() {
         List<Edge> edges = reader.readBagRules(FILE_NAME);
-        WeightedGraph graph = new WeightedGraph(edges);
+        Graph graph = factory.createGraph(edges);
         Assertions.assertEquals(4, handyHaversacks.countBagsThatCanContainShinyGoldBag(graph));
     }
 
     @Test
     void countBagsRulesAOCShouldReturnProperShinyGoldOccurrences() {
         List<Edge> edgesPartOne = reader.readBagRules(FILE_NAME_AOC);
-        WeightedGraph graph = new WeightedGraph(edgesPartOne);
+        Graph graph = factory.createGraph(edgesPartOne);
         Assertions.assertEquals(4, handyHaversacks.countBagsThatCanContainShinyGoldBag(graph));
     }
 }
