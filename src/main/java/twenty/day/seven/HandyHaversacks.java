@@ -1,30 +1,22 @@
 package twenty.day.seven;
 
-import org.apache.commons.collections4.CollectionUtils;
-
-import java.util.List;
-import java.util.Map;
-
 class HandyHaversacks {
 
     private static final String SHINY_GOLD = "shinygold";
 
-    long countBagsThatCanContainShinyGoldBag(final Graph weightedGraph) {
-        return weightedGraph.getGraph().entrySet()
+    long countBagsThatCanContainShinyGoldBag(final WeightedBagGraph weightedBagGraph) {
+        return weightedBagGraph.getGraph().entrySet()
                 .stream()
-                .filter(bag -> checkShinyGoldBagOccurrencesInNode(bag.getKey(), weightedGraph.getGraph()))
+                .filter(bag -> isShinyGoldBagInside(bag.getKey(), weightedBagGraph))
                 .count();
     }
 
-    boolean checkShinyGoldBagOccurrencesInNode(String nodeLabel, Map<String, List<Bag>> graph) {
-        final List<Bag> bags = graph.get(nodeLabel);
-        if (CollectionUtils.isNotEmpty(bags)) {
-            for (Bag nestedBag : bags) {
-                if (nestedBag.label().equals(SHINY_GOLD)) {
-                    return true;
-                } else {
-                    return checkShinyGoldBagOccurrencesInNode(nestedBag.label(), graph);
-                }
+    boolean isShinyGoldBagInside(String bagLabel, BagGraph bags) {
+        for (Bag nestedBag : bags.getBagsInside(bagLabel)) {
+            if (nestedBag.name().contains(SHINY_GOLD)) {
+                return true;
+            } else {
+                return isShinyGoldBagInside(nestedBag.name(), bags);
             }
         }
         return false;

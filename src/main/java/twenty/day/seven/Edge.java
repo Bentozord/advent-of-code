@@ -1,4 +1,4 @@
 package twenty.day.seven;
 
-record Edge(String source, String destination, Integer weight) {
+record Edge(String source, String destination, Integer quantity) {
 }

@@ -26,17 +26,17 @@ class BagReader {
     private List<Edge> filterRuleToCreateEdges(String bagRule) {
         final String[] rules = bagRule.split(" ");
 
-        if (rules[4].equals("no")) {
+        if (rules[4].contains("no")) {
             return Collections.emptyList();
         }
 
-        List<Edge> edges = new ArrayList<>();
-        String edgeSource = rules[0] + rules[1];
+        List<Edge> bags = new ArrayList<>();
+        String bagName = rules[0] + rules[1];
 
-        edges.add(new Edge(edgeSource, rules[5] + rules[6], Integer.valueOf(rules[4])));
-        if (rules.length > 8) {
-            edges.add(new Edge(edgeSource, rules[9] + rules[10], Integer.valueOf(rules[8])));
+        for (String bag : bagRule.split(" bags contain ")[1].split(", ")) {
+            final String[] bagDetails = bag.split(" ");
+            bags.add(new Edge(bagName, bagDetails[1] + bagDetails[2], Integer.valueOf(bagDetails[0])));
         }
-        return edges;
+        return bags;
     }
 }
