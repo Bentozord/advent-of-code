@@ -27,12 +27,34 @@ class EncodingErrorTest {
 
     @Test
     void shouldGetFirstNumberThatFailsConditionOfTwoNumbersSumUpForPreambleSizeFive() {
-        Assertions.assertEquals(127, encodingError.getFirstNumberThatFailsRuleForGivenPreamble(input, 5));
+        Assertions.assertEquals(
+                127,
+                encodingError.getFirstNumberThatFailsRuleForGivenPreamble(input, 5)
+        );
     }
 
     @Test
     void shouldGetFirstNumberThatFailsConditionOfTwoNumbersSumUpPreambleSizeTwentyFive() {
-        Assertions.assertEquals(1398413738, encodingError.getFirstNumberThatFailsRuleForGivenPreamble(inputExtended, 25));
+        Assertions.assertEquals(
+                1398413738,
+                encodingError.getFirstNumberThatFailsRuleForGivenPreamble(inputExtended, 25)
+        );
+    }
+
+    @Test
+    void shouldGetSumOfSmallestAndLargestNumberThatFailsConditionPreambleSizeFive() {
+        Assertions.assertEquals(
+                62,
+                encodingError.getSumOfSmallestAndLargestNumbersFromRangeThatFailsCondition(input, 5)
+        );
+    }
+
+    @Test
+    void shouldGetSumOfSmallestAndLargestNumberThatFailsCondition() {
+        Assertions.assertEquals(
+                169521051,
+                encodingError.getSumOfSmallestAndLargestNumbersFromRangeThatFailsCondition(inputExtended, 25)
+        );
     }
 
 }
