@@ -49,13 +49,12 @@ class AdapterArray {
             oneJoltStreak.incrementAndGet();
         } else {
             int streak = oneJoltStreak.get();
-            possibilities.set(possibilities.get() * countLazyCaterersSequence(streak));
+            possibilities.set(possibilities.get() * countLazyCaterersSequence(streak - 1));
             oneJoltStreak.set(0);
         }
     }
 
     long countLazyCaterersSequence(int oneJoltStreaks) {
-        oneJoltStreaks -= 1;
         return (long) ((Math.pow(oneJoltStreaks, 2) + oneJoltStreaks + 2) / 2);
     }
 }
