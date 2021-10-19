@@ -26,27 +26,16 @@ class Ship {
             case S -> location.put(Direction.SOUTH, location.get(Direction.SOUTH) + instruction.getValue());
             case W -> location.put(Direction.WEST, location.get(Direction.WEST) + instruction.getValue());
             case F -> location.put(currentDirection, location.get(currentDirection) + instruction.getValue());
-            case R -> changeDirection(InstructionType.R, instruction.getValue());
-            case L -> changeDirection(InstructionType.L, instruction.getValue());
+            case R -> changeDirection(1, instruction.getValue());
+            case L -> changeDirection(-1, instruction.getValue());
         }
     }
 
-    //todo refactor this logic
-    void changeDirection(InstructionType instructionType, Integer degrees) {
-        final Integer orderChange = degrees / 90;
-        final int result;
-        if (InstructionType.R == instructionType) {
-            result = (currentDirection.getOrder() + orderChange) % 4;
-        } else {
-            int difference = ((currentDirection.getOrder() - orderChange) % 4);
-            result = difference < 0 ? 4 + difference : difference;
-        }
-        switch (result) {
-            case 0 -> currentDirection = Direction.NORTH;
-            case 1 -> currentDirection = Direction.EAST;
-            case 2 -> currentDirection = Direction.SOUTH;
-            case 3 -> currentDirection = Direction.WEST;
-        }
+    private void changeDirection(Integer directionSign, Integer degrees) {
+        final Integer orderChange = directionSign * (degrees / 90) % 4;
+        int difference = currentDirection.getOrder() + orderChange;
+        int result = difference < 0 ? 4 + difference : difference;
+        currentDirection = Direction.valueOfOrder(result % 4);
     }
 
     Integer getManhattanDistance() {

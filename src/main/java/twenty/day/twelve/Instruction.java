@@ -4,16 +4,16 @@ class Instruction {
     private final InstructionType instructionType;
     private final Integer value;
 
-    public Instruction(InstructionType instructionType, Integer value) {
+    Instruction(InstructionType instructionType, Integer value) {
         this.instructionType = instructionType;
         this.value = value;
     }
 
-    public InstructionType getInstructionType() {
+    InstructionType getInstructionType() {
         return instructionType;
     }
 
-    public Integer getValue() {
+    Integer getValue() {
         return value;
     }
 }

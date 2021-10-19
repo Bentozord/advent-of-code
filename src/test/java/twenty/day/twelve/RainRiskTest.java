@@ -35,4 +35,14 @@ class RainRiskTest {
     void getManhattanDistanceAOC() {
         Assertions.assertEquals(1186, rainRisk.navigateAndGetDistance(instructionsAOC));
     }
+
+    @Test
+    void getManhattanDistanceIncludingWaypoint() {
+        Assertions.assertEquals(286, rainRisk.navigateWaypointAndShip(instructions));
+    }
+
+    @Test
+    void getManhattanDistanceIncludingWaypointAOC() {
+        Assertions.assertEquals(47806, rainRisk.navigateWaypointAndShip(instructionsAOC));
+    }
 }
