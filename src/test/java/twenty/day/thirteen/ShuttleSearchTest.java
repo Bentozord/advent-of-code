@@ -39,4 +39,9 @@ class ShuttleSearchTest {
     void getSearchResultForAOCNotes() {
         Assertions.assertEquals(138, shuttleSearch.getSearchResult(busesIdsAOC, timestampAOC));
     }
+
+    @Test
+    void getLowestTimestampFulfillingShuttleCondition() {
+        Assertions.assertEquals(226845233210288L, shuttleSearch.getTimestamp(reader.getIdsWithOffsets(FILE_NAME_AOC)));
+    }
 }
