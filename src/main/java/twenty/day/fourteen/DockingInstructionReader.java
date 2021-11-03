@@ -33,7 +33,7 @@ class DockingInstructionReader {
             while (scanner.hasNextLine()) {
                 final String[] split = scanner.nextLine().split(" = ");
                 final String memory = split[0];
-                Integer memoryAddress = Integer.valueOf(memory.substring(memory.indexOf("[") + 1, memory.indexOf("]")));
+                Long memoryAddress = Long.valueOf(memory.substring(memory.indexOf("[") + 1, memory.indexOf("]")));
                 Long value = Long.valueOf(split[1]);
                 memoryInstructions.add(new MemoryInstruction(memoryAddress, value));
             }

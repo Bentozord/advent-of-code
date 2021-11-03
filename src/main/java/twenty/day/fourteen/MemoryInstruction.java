@@ -1,4 +1,4 @@
 package twenty.day.fourteen;
 
-record MemoryInstruction(Integer memoryAddress, Long value) {
+record MemoryInstruction(Long memoryAddress, Long value) {
 }

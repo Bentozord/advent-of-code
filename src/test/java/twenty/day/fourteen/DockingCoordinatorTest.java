@@ -39,7 +39,7 @@ class DockingCoordinatorTest {
     @ParameterizedTest
     @MethodSource("provideDockingInstructions")
     void shouldCountAllValuesInMemory(List<DockingInstruction> input, Long result) {
-        final Map<Integer, Long> memoryMap = dockingCoordinator.initializeDockingProgram(input);
+        final Map<Long, Long> memoryMap = dockingCoordinator.initializeDockingProgram(input);
         final Long mapValues = dockingCoordinator.getMemoryAddressesValues(memoryMap);
         Assertions.assertEquals(result, mapValues);
     }
@@ -49,5 +49,12 @@ class DockingCoordinatorTest {
                 Arguments.of(dockingInstructions, 165L),
                 Arguments.of(dockingInstructionsAOC, 18630548206046L)
         );
+    }
+
+    @Test
+    void shouldCountAllValuesInMemoryAOC() {
+        final Map<Long, Long> memoryMap = dockingCoordinator.initializeDockingProgramWithAddressChange(dockingInstructionsAOC);
+        final Long mapValues = dockingCoordinator.getMemoryAddressesValues(memoryMap);
+        Assertions.assertEquals(4254673508445L, mapValues);
     }
 }
