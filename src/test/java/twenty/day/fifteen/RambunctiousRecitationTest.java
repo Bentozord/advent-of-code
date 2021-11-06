@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 class RambunctiousRecitationTest {
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "player should shout number {2} in turn {1} for given numbers {0}")
     @MethodSource("provideGameNumbers")
     void shouldReturnProperNumberInProvidedTurnInGame(List<Integer> gameNumbers, Integer providedTurn, Integer result) {
         RambunctiousRecitation recitation = new RambunctiousRecitation();
